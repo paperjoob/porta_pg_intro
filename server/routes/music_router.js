@@ -32,4 +32,18 @@ router.post('/', (req, res) => {
     })
 })
 
+router.delete('/:id', (req, res) => { // Do NOT forget the COLON after the whack
+    console.log(req.params.id);
+
+    let queryText = `DELETE FROM "songs" WHERE "id" = ${req.params.id};`; // the inner semi-colon ends the query;
+    pool.query(queryText) // passing the queryText variable into the pool query;
+    .then( (result) => { // when you get something back from the database, it's a RESULT.
+        res.sendStatus(200);
+    })
+    .catch( (error) => {
+        console.log('error making query', error);
+        res.sendStatus(500);
+    })
+});
+
 module.exports = router;
