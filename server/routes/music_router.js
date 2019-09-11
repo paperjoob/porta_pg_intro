@@ -1,4 +1,5 @@
 const express = require('express');
+const pool = require('../modules/pool.js'); // direct path -- .. brings you to the next level
 const router = express.Router();
 
 let musicLibrary = [
@@ -35,9 +36,12 @@ let musicLibrary = [
 ]
 
 router.get('/', (req, res) => {
-    // res.send(musicLibrary);
     let queryText = `SELECT * FROM "songs";`; // the inner semi-colon ends the query;
-    
+    pool.query(queryText) // passing the queryText variable into the pool query;
+    .then( (result) => { // when you get something back from the database, it's a RESULT.
+        // console.log('results: ', result);
+        res.send(result.rows);
+    })
 });
 
 router.post('/', (req, res) => {
