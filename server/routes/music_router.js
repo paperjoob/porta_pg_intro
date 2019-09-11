@@ -32,11 +32,11 @@ router.post('/', (req, res) => {
     })
 })
 
-router.delete('/:id', (req, res) => { // Do NOT forget the COLON after the whack
+router.delete('/:id', (req, res) => { // Do NOT forget the COLON after the whack; colon denotes a VARIABLE
     console.log(req.params.id);
 
-    let queryText = `DELETE FROM "songs" WHERE "id" = ${req.params.id};`; // the inner semi-colon ends the query;
-    pool.query(queryText) // passing the queryText variable into the pool query;
+    let queryText = `DELETE FROM "songs" WHERE "id" = $1;`; // the inner semi-colon ends the query;
+    pool.query(queryText, [req.params.id]) // passing the queryText variable into the pool query;
     .then( (result) => { // when you get something back from the database, it's a RESULT.
         res.sendStatus(200);
     })
