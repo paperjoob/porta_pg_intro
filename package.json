@@ -1,7 +1,7 @@
 {
   "name": "pg_music_library",
   "version": "1.0.0",
-  "description": "",
+  "description": "Music Library Project! --- To spin up this project:",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -12,6 +12,16 @@
   "dependencies": {
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
-    "jquery": "^3.4.1"
-  }
+    "jquery": "^3.4.1",
+    "pg": "^7.12.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/paperjoob/porta_pg_intro.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/paperjoob/porta_pg_intro/issues"
+  },
+  "homepage": "https://github.com/paperjoob/porta_pg_intro#readme"
 }
